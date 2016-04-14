@@ -59,10 +59,41 @@ set wildmenu
 
 
 " 插件管理
-" 将 pathogen 自身也置于独立目录中，需指定其路径
-runtime bundle/pathogen/autoload/pathogen.vim
-" 运行 pathogen
-execute pathogen#infect()
+" vundle 环境设置
+filetype off
+set rtp+=~/.vim/bundle/Vundle.vim
+" vundle 管理的插件列表必须位于 vundle#begin() 和 vundle#end() 之间
+call vundle#begin()
+
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'Lokaltog/vim-powerline'
+Plugin 'octol/vim-cpp-enhanced-highlight'
+Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'derekwyatt/vim-fswitch'
+Plugin 'kshenoy/vim-signature'
+
+Plugin 'majutsushi/tagbar'
+Plugin 'vim-scripts/indexer.tar.gz'
+Plugin 'vim-scripts/DfrankUtil'
+Plugin 'vim-scripts/vimprj'
+Plugin 'dyng/ctrlsf.vim'
+Plugin 'terryma/vim-multiple-cursors'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'vim-scripts/DrawIt'
+Plugin 'SirVer/ultisnips'
+Plugin 'Valloric/YouCompleteMe'
+
+Plugin 'scrooloose/nerdtree'
+Plugin 'fholgado/minibufexpl.vim'
+Plugin 'gcmt/wildfire.vim'
+Plugin 'sjl/gundo.vim'
+Plugin 'Lokaltog/vim-easymotion'
+
+
+" 插件列表结束
+call vundle#end()
+filetype plugin indent on
+" <<<<
 
 " 配色方案
 set t_Co=256
@@ -122,9 +153,9 @@ set foldmethod=syntax
 set nofoldenable
 
 " *.cpp 和 *.h 间切换
-nmap <Leader>ch :A<CR>
+nmap <silent> <Leader>sw :FSHere<CR>
 " 子窗口中显示 *.cpp 或 *.h
-nmap <Leader>sch :AS<CR>
+"nmap <Leader>sch :AS<CR>
 
 
 " 设置插件 indexer 调用 ctags 的参数
@@ -186,6 +217,9 @@ let g:tagbar_type_cpp = {
 " 使用 ctrlsf.vim 插件在工程内全局查找光标所在关键字，设置快捷键。快捷键速记法：search in project
 nnoremap <Leader>sp :CtrlSF<CR>
 
+" 快捷替换
+let g:multi_cursor_next_key='<S-n>'
+let g:multi_cursor_skip_key='<S-k>'
 
 " 替换函数。参数说明：
 " confirm：是否替换前逐一确认
