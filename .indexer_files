@@ -1,8 +1,10 @@
-[libsocketcan]
-/home/craig/git_clone/can_tools/libsocketcan/
 
 [canutils]
 /home/craig/git_clone/can_tools/can-utils/
 
+[vig]
+/home/craig/bsp/am335x/vig/app
 
+[aws]
+/home/craig/code_download/linux_mqtt_mbedtls-2.1.1/
 
